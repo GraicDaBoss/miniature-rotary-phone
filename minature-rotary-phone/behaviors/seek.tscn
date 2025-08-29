@@ -1,17 +1,18 @@
-[gd_scene load_steps=27 format=3 uid="uid://dmi1o12psjnub"]
+[gd_scene load_steps=28 format=3 uid="uid://dmi1o12psjnub"]
 
 [ext_resource type="PackedScene" uid="uid://okvro62ssxp" path="res://Models/cobramk3_out/cobramk3.gltf" id="1"]
 [ext_resource type="Script" uid="uid://4lgf670p0wbc" path="res://behaviors/MoveTarget.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="2_gcac3"]
+[ext_resource type="PackedScene" uid="uid://bhyg07fisy31" path="res://free-skybox-space-nebula/source/basic_skybox_3d_flip.tscn" id="2_gorun"]
 [ext_resource type="Script" uid="uid://h5wrviq7ex0m" path="res://behaviors/offset_pursue.gd" id="3"]
 [ext_resource type="Script" uid="uid://cr5ejl6hlraib" path="res://behaviors/root.gd" id="6"]
 [ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="7"]
 [ext_resource type="PackedScene" uid="uid://dc24oh4o5erhi" path="res://behaviors/SceneSwitcher.tscn" id="10"]
-[ext_resource type="Material" uid="uid://b2raijlysriqd" path="res://behaviors/Tank Material.tres" id="11_a5ijt"]
 [ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="12"]
 [ext_resource type="Script" uid="uid://blhpcqstd5fde" path="res://behaviors/trail_renderer.gd" id="12_j7bwt"]
 [ext_resource type="Material" uid="uid://ca5mcii5ms7ww" path="res://behaviors/CobraTrail.tres" id="13_v60ph"]
 [ext_resource type="Script" uid="uid://c2d7mphmtn1jv" path="res://behaviors/seek.gd" id="15"]
+[ext_resource type="Material" uid="uid://bypyk3i4e4inc" path="res://materials/matrix1.tres" id="15_gorun"]
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="16"]
 [ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="16_c0578"]
 
@@ -46,6 +47,8 @@ point_count = 2
 
 [node name="seek" type="Node3D"]
 script = ExtResource("6")
+
+[node name="basic_skybox_3d_flip" parent="." instance=ExtResource("2_gorun")]
 
 [node name="ui_layer" parent="." instance=ExtResource("16_c0578")]
 
@@ -103,7 +106,7 @@ damping = 0.3
 transform = Transform3D(1, 0, 0, 0, -8.74228e-08, -1, 0, 2, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("7")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11_a5ijt")
+surface_material_override/0 = ExtResource("15_gorun")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/boid"]
 shape = SubResource("8")
@@ -119,7 +122,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.17476)
 transform = Transform3D(1, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 0, 0, -0.504121)
 mesh = SubResource("9")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("11_a5ijt")
+surface_material_override/0 = ExtResource("15_gorun")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/tail"]
 shape = SubResource("10")
@@ -131,7 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.67867)
 [node name="MeshInstance2" type="MeshInstance3D" parent="Creature/body3"]
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11_a5ijt")
+surface_material_override/0 = ExtResource("15_gorun")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body3"]
 shape = SubResource("12")
@@ -142,7 +145,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.26419)
 [node name="MeshInstance3" type="MeshInstance3D" parent="Creature/body2"]
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11_a5ijt")
+surface_material_override/0 = ExtResource("15_gorun")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body2"]
 shape = SubResource("13")
@@ -153,7 +156,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.6865)
 [node name="MeshInstance4" type="MeshInstance3D" parent="Creature/body1"]
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11_a5ijt")
+surface_material_override/0 = ExtResource("15_gorun")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body1"]
 shape = SubResource("14")

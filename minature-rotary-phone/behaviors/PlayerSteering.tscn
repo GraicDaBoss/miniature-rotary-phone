@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bkxiouafktaxk"]
+[gd_scene load_steps=23 format=3 uid="uid://bkxiouafktaxk"]
 
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1"]
 [ext_resource type="Script" uid="uid://cqk70j8jant4u" path="res://behaviors/player_steering.gd" id="2"]
@@ -9,9 +9,10 @@
 [ext_resource type="Script" uid="uid://cr5ejl6hlraib" path="res://behaviors/root.gd" id="6"]
 [ext_resource type="Script" uid="uid://bpe72cnx2s1eg" path="res://behaviors/Obstacles.gd" id="7"]
 [ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="8"]
+[ext_resource type="Material" path="res://materials/matrix2.tres" id="8_hamsu"]
 [ext_resource type="PackedScene" uid="uid://dc24oh4o5erhi" path="res://behaviors/SceneSwitcher.tscn" id="9"]
-[ext_resource type="Material" uid="uid://b2raijlysriqd" path="res://behaviors/Tank Material.tres" id="11"]
 [ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="14"]
+[ext_resource type="PackedScene" uid="uid://bhyg07fisy31" path="res://free-skybox-space-nebula/source/basic_skybox_3d_flip.tscn" id="14_vu1am"]
 [ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="15_ig2gb"]
 
 [sub_resource type="PrismMesh" id="7"]
@@ -82,7 +83,7 @@ damping = 0.3
 transform = Transform3D(2, 0, 0, 0, -1.74846e-07, -2, 0, 4, -8.74228e-08, 0, 0, 0)
 mesh = SubResource("7")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11")
+surface_material_override/0 = ExtResource("8_hamsu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/boid"]
 shape = SubResource("8")
@@ -106,7 +107,7 @@ weight = 20.0
 transform = Transform3D(2, 0, 0, 0, -1.74846e-07, 2, 0, -4, -8.74228e-08, 0, 0, -0.504121)
 mesh = SubResource("9")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("11")
+surface_material_override/0 = ExtResource("8_hamsu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/tail"]
 shape = SubResource("10")
@@ -119,7 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11")
+surface_material_override/0 = ExtResource("8_hamsu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body3"]
 shape = SubResource("12")
@@ -131,7 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11")
+surface_material_override/0 = ExtResource("8_hamsu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body2"]
 shape = SubResource("13")
@@ -143,7 +144,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11")
+surface_material_override/0 = ExtResource("8_hamsu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body1"]
 shape = SubResource("14")
@@ -158,5 +159,7 @@ bubble_radius = 50
 center_path = NodePath("../Marker3D")
 
 [node name="ui_layer" parent="." instance=ExtResource("15_ig2gb")]
+
+[node name="basic_skybox_3d_flip" parent="." instance=ExtResource("14_vu1am")]
 
 [editable path="Player"]

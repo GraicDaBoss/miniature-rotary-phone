@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5gyw8mr62t2d"]
+[gd_scene load_steps=29 format=3 uid="uid://5gyw8mr62t2d"]
 
 [ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="1"]
 [ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="2"]
@@ -8,14 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://okvro62ssxp" path="res://Models/cobramk3_out/cobramk3.gltf" id="5"]
 [ext_resource type="PackedScene" uid="uid://dc24oh4o5erhi" path="res://behaviors/SceneSwitcher.tscn" id="6"]
 [ext_resource type="Script" uid="uid://blhpcqstd5fde" path="res://behaviors/trail_renderer.gd" id="7"]
-[ext_resource type="Material" uid="uid://b2raijlysriqd" path="res://behaviors/Tank Material.tres" id="8"]
 [ext_resource type="Script" uid="uid://cr5ejl6hlraib" path="res://behaviors/root.gd" id="9"]
 [ext_resource type="Script" uid="uid://h5wrviq7ex0m" path="res://behaviors/offset_pursue.gd" id="10"]
 [ext_resource type="Script" uid="uid://bn4xj07get8k6" path="res://behaviors/arrive.gd" id="11"]
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="12"]
 [ext_resource type="Script" uid="uid://4lgf670p0wbc" path="res://behaviors/MoveTarget.gd" id="13"]
-[ext_resource type="Material" uid="uid://ca5mcii5ms7ww" path="res://behaviors/CobraTrail.tres" id="13_ht4di"]
+[ext_resource type="Material" uid="uid://bypyk3i4e4inc" path="res://materials/matrix1.tres" id="15_87nla"]
 [ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="16_45thp"]
+[ext_resource type="PackedScene" uid="uid://bhyg07fisy31" path="res://free-skybox-space-nebula/source/basic_skybox_3d_flip.tscn" id="17_mukwx"]
 
 [sub_resource type="SphereShape3D" id="18"]
 
@@ -38,9 +38,6 @@
 [sub_resource type="Curve" id="16"]
 _data = [Vector2(0.00332226, 0.990909), 0.0, 0.0, 0, 0, Vector2(0.997785, 0), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nslo7"]
-albedo_color = Color(0.670588, 0.847059, 0.0862745, 1)
 
 [sub_resource type="Curve" id="17"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.998893, 0), 0.0, 0.0, 0, 0]
@@ -117,7 +114,7 @@ damping = 0.3
 transform = Transform3D(1, 0, 0, 0, -8.74228e-08, -1, 0, 2, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("7")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("8")
+surface_material_override/0 = ExtResource("15_87nla")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/boid"]
 shape = SubResource("8")
@@ -133,7 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.30076)
 transform = Transform3D(1, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 0, 0, -0.504121)
 mesh = SubResource("9")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("8")
+surface_material_override/0 = ExtResource("15_87nla")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/tail"]
 shape = SubResource("10")
@@ -145,7 +142,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.67878)
 [node name="MeshInstance2" type="MeshInstance3D" parent="Creature/body3"]
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("8")
+surface_material_override/0 = ExtResource("15_87nla")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body3"]
 shape = SubResource("12")
@@ -156,7 +153,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.11919)
 [node name="MeshInstance3" type="MeshInstance3D" parent="Creature/body2"]
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("8")
+surface_material_override/0 = ExtResource("15_87nla")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body2"]
 shape = SubResource("13")
@@ -167,7 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.4972)
 [node name="MeshInstance4" type="MeshInstance3D" parent="Creature/body1"]
 mesh = SubResource("11")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("8")
+surface_material_override/0 = ExtResource("15_87nla")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Creature/body1"]
 shape = SubResource("14")
@@ -185,13 +182,13 @@ transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
 transform = Transform3D(-0.999064, 0.0432532, 0, -0.0432532, -0.999064, 0, 0, 0, 1, 0.55, -0.075, -0.1)
 script = ExtResource("7")
 width_curve = SubResource("16")
-material = SubResource("StandardMaterial3D_nslo7")
+material = ExtResource("15_87nla")
 
 [node name="Trail2" type="Node3D" parent="Ship"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, -0.075, -0.1)
 script = ExtResource("7")
 width_curve = SubResource("17")
-material = ExtResource("13_ht4di")
+material = ExtResource("15_87nla")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ship"]
 shape = SubResource("15")
@@ -209,6 +206,8 @@ wait_time = 20.0
 autostart = true
 
 [node name="ui_layer" parent="." instance=ExtResource("16_45thp")]
+
+[node name="basic_skybox_3d_flip" parent="." instance=ExtResource("17_mukwx")]
 
 [connection signal="timeout" from="CreatureTarget/Timer" to="CreatureTarget" method="_on_Timer_timeout"]
 [connection signal="timeout" from="ShipTarget/Timer" to="ShipTarget" method="_on_Timer_timeout"]

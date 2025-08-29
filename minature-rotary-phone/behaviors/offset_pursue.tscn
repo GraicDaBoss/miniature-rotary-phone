@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bc0aaseobupos"]
+[gd_scene load_steps=17 format=3 uid="uid://bc0aaseobupos"]
 
 [ext_resource type="Script" uid="uid://cr5ejl6hlraib" path="res://behaviors/root.gd" id="1"]
 [ext_resource type="Script" uid="uid://bqb47mif0r5vt" path="res://behaviors/noise_wander.gd" id="2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://4lgf670p0wbc" path="res://behaviors/MoveTarget.gd" id="11"]
 [ext_resource type="Script" uid="uid://baw56rnhj0aqm" path="res://behaviors/wander.gd" id="12"]
 [ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="12_nmf8m"]
+[ext_resource type="PackedScene" uid="uid://bhyg07fisy31" path="res://free-skybox-space-nebula/source/basic_skybox_3d_flip.tscn" id="13_cldp0"]
 
 [sub_resource type="Curve" id="16"]
 _data = [Vector2(0.00332226, 0.990909), 0.0, 0.0, 0, 0, Vector2(0.997785, 0), 0.0, 0.0, 0, 0]
@@ -220,6 +221,8 @@ script = ExtResource("3")
 leader_boid = NodePath("../../boid")
 
 [node name="ui_layer" parent="." instance=ExtResource("12_nmf8m")]
+
+[node name="basic_skybox_3d_flip" parent="." instance=ExtResource("13_cldp0")]
 
 [connection signal="timeout" from="ShipTarget/Timer" to="ShipTarget" method="_on_Timer_timeout"]
 

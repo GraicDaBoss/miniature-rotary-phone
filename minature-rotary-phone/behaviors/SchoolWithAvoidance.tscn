@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://by0v7as0ensmo"]
+[gd_scene load_steps=16 format=3 uid="uid://by0v7as0ensmo"]
 
 [ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="2_on7x8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://h5wrviq7ex0m" path="res://behaviors/offset_pursue.gd" id="10"]
 [ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="11"]
 [ext_resource type="PackedScene" uid="uid://dc24oh4o5erhi" path="res://behaviors/SceneSwitcher.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://bhyg07fisy31" path="res://free-skybox-space-nebula/source/basic_skybox_3d_flip.tscn" id="14_6mwug"]
 [ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="15_itnq4"]
 
 [sub_resource type="PlaneMesh" id="10"]
@@ -86,5 +87,7 @@ center_path = NodePath("../Center")
 [node name="SceneSwitcher" parent="." instance=ExtResource("13")]
 
 [node name="ui_layer" parent="." instance=ExtResource("15_itnq4")]
+
+[node name="basic_skybox_3d_flip" parent="." instance=ExtResource("14_6mwug")]
 
 [editable path="Player"]
