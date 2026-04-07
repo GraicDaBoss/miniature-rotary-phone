@@ -1,5 +1,29 @@
-[gd_scene format=3 uid="uid://fogv3mf80t8b"]
+[gd_scene load_steps=3 format=3 uid="uid://fogv3mf80t8b"]
+
+[ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="1_msyrs"]
+
+[sub_resource type="Environment" id="Environment_mwkk7"]
+background_mode = 1
+background_color = Color(0, 0, 0.137255, 1)
+ambient_light_color = Color(0.375073, 1.71105e-05, 0.299194, 1)
+fog_light_color = Color(0.0774674, 0.123423, 0.138376, 1)
+fog_density = 0.0043
+fog_sky_affect = 0.511
+fog_height_density = -5.1494
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0, 0, 0.141176, 1)
+volumetric_fog_emission = Color(4.09111e-07, 0, 0.289939, 1)
 
 [node name="Main" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 20, 35)
+far = 1000.0
+script = ExtResource("1_msyrs")
+can_move = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mwkk7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0, 0.574951, 0.575365, 1)
