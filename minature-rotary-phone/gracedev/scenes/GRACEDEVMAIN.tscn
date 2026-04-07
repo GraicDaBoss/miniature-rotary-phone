@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fogv3mf80t8b"]
+[gd_scene load_steps=5 format=3 uid="uid://fogv3mf80t8b"]
 
 [ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="1_msyrs"]
+[ext_resource type="Script" uid="uid://bklquyf8gnp32" path="res://gracedev/scenes/bellspawner.gd" id="2_mwkk7"]
+[ext_resource type="FontFile" uid="uid://drt4fpn7wqwoq" path="res://fonts/DOTMATRI.TTF" id="3_bh1x8"]
 
 [sub_resource type="Environment" id="Environment_mwkk7"]
 background_mode = 1
@@ -28,3 +30,14 @@ environment = SubResource("Environment_mwkk7")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0, 0.574951, 0.575365, 1)
 light_energy = 0.4
+
+[node name="BellSpawner" type="Node3D" parent="."]
+script = ExtResource("2_mwkk7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 368.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_bh1x8")
+text = "Left click: place bell | Right click: change note | Space: perform"

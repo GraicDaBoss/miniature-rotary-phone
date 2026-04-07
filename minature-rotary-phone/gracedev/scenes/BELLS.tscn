@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://berfs2defofnx"]
+
+[ext_resource type="Script" uid="uid://drn3entg5lvbn" path="res://gracedev/scenes/bell.gd" id="1_64fwf"]
+[ext_resource type="AudioStream" uid="uid://b4gso0aeqhjm7" path="res://gracedev/sounds/bell.wav" id="2_ojdap"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evy8u"]
+albedo_color = Color(0.956923, 0.962117, 0.991781, 1)
+emission_enabled = true
+emission = Color(1, 0.827451, 0, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_64fwf"]
+radius = 0.3
+
+[node name="Bell" type="Node3D"]
+script = ExtResource("1_64fwf")
+base_pitch = ExtResource("2_ojdap")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.3
+material = SubResource("StandardMaterial3D_evy8u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_64fwf")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_ojdap")
