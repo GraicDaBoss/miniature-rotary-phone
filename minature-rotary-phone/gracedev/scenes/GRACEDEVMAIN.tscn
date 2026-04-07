@@ -27,3 +27,4 @@ environment = SubResource("Environment_mwkk7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0, 0.574951, 0.575365, 1)
+light_energy = 0.4
