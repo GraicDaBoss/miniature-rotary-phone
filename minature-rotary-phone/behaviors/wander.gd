@@ -1,36 +1,25 @@
-class_name Wander extends SteeringBehavior
+class_name WanderState extends State
 
-@export var distance:float = 20
-@export var radius:float  = 10
-@export var jitter:float = 50
+var noise_wander: NoiseWander
+var time: float = 0.0
 
-enum Axis { Horizontal, Vertical}
+func _enter():
+	# Reuse repo's NoiseWander
+	noise_wander = NoiseWander.new()
+	noise_wander.radius = 6.0
+	noise_wander.frequency = 0.4
+	state_machine.boid.add_child(noise_wander)
 
-@export var axis = Axis.Horizontal
-var target:Vector3
-var world_target:Vector3
-var wander_target:Vector3
+func _exit():
+	if noise_wander:
+		noise_wander.queue_free()
 
-func _ready():
-	boid = get_parent()
-	wander_target = Utils.random_point_in_unit_sphere() * radius
-		
-func on_draw_gizmos():
-	var cent = boid.global_transform * (Vector3.BACK * distance)
-	DebugDraw3D.draw_sphere(cent, radius, Color.DARK_SLATE_BLUE)
-	DebugDraw3D.draw_line(boid.global_transform.origin, cent, Color.DARK_SLATE_BLUE)
-	#
-	DebugDraw3D.draw_line(cent, world_target, Color.DARK_SLATE_BLUE, 0.1)			
-	# DebugDraw3D.draw_position(Transform3D(Basis(), world_target), Color.DARK_SLATE_BLUE)			
+func _think():
+	state_machine.boid.steering_force = noise_wander.calculate()
 
-func calculate():		
-	var delta = get_process_delta_time()
-	var disp = jitter * Utils.random_point_in_unit_sphere() * delta
-	wander_target += disp
-	wander_target = wander_target.limit_length(radius)
-	var local_target = (Vector3.BACK * distance) + wander_target
-
-	world_target = boid.global_transform * (local_target)
-	# print("world" + str(worldTarget))
-	
-	return boid.seek_force(world_target)
+	var brain = state_machine.boid.get_node("Brain")
+	if brain.is_performing:
+		var next = brain.get_next_bell()
+		if next:
+			brain.current_target = next
+			state_machine.change_state(seek_bell.new())

@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnr0yo7df7bo8"]
+[gd_scene load_steps=11 format=3 uid="uid://bnr0yo7df7bo8"]
 
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_u14fy"]
 [ext_resource type="Script" uid="uid://cxn1a1nj6cjo1" path="res://gracedev/scenes/creaturecontroller.gd" id="1_v5orf"]
 [ext_resource type="Script" uid="uid://bhtkod4qbxkx7" path="res://behaviors/state_machine.gd" id="2_v5orf"]
 [ext_resource type="Script" uid="uid://hvh6pmo3lg7e" path="res://gracedev/scenes/creaturebrain.gd" id="3_4appx"]
 [ext_resource type="Script" uid="uid://baw56rnhj0aqm" path="res://behaviors/wander.gd" id="3_7wjht"]
+[ext_resource type="Script" uid="uid://jjubygf4tyb4" path="res://gracedev/scenes/bodypulse.gd" id="4_akux1"]
+[ext_resource type="Script" uid="uid://cfj6q7selmpm2" path="res://gracedev/scenes/seek_bell.gd" id="6_4appx"]
+[ext_resource type="Script" uid="uid://ckpjhyfcwgxtf" path="res://gracedev/scenes/listen.gd" id="7_s1b8a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u14fy"]
 height = 3.0684
@@ -63,9 +66,11 @@ script = ExtResource("3_4appx")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
 [node name="bodypulse" type="Node" parent="."]
+script = ExtResource("4_akux1")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_v5orf")
+initial_state = NodePath("Wander")
 metadata/_custom_type_script = "uid://bhtkod4qbxkx7"
 
 [node name="Wander" type="Node" parent="StateMachine"]
@@ -73,5 +78,7 @@ script = ExtResource("3_7wjht")
 metadata/_custom_type_script = "uid://baw56rnhj0aqm"
 
 [node name="SeekBell" type="Node" parent="StateMachine"]
+script = ExtResource("6_4appx")
 
 [node name="Listen" type="Node" parent="StateMachine"]
+script = ExtResource("7_s1b8a")
