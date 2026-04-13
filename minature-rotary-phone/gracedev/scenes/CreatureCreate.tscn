@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnr0yo7df7bo8"]
+
+[ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_u14fy"]
+[ext_resource type="Script" uid="uid://cxn1a1nj6cjo1" path="res://gracedev/scenes/creaturecontroller.gd" id="1_v5orf"]
+[ext_resource type="Script" uid="uid://bhtkod4qbxkx7" path="res://behaviors/state_machine.gd" id="2_v5orf"]
+[ext_resource type="Script" uid="uid://hvh6pmo3lg7e" path="res://gracedev/scenes/creaturebrain.gd" id="3_4appx"]
+[ext_resource type="Script" uid="uid://baw56rnhj0aqm" path="res://behaviors/wander.gd" id="3_7wjht"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u14fy"]
+height = 3.0684
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5orf"]
+albedo_color = Color(1, 0.670588, 1, 1)
+
+[node name="Body" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_v5orf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(0.0265527, -1.1647, 0, 1.1647, 0.0265527, 0, 0, 0, 1.165, 1.05448, 0, 0)
+shape = SubResource("CapsuleShape3D_u14fy")
+
+[node name="coremesh" type="CSGSphere3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="coremesh"]
+light_color = Color(0.418712, 1, 0.933755, 1)
+light_energy = 1.449
+light_indirect_energy = 1.185
+light_size = 1.29
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+material = SubResource("StandardMaterial3D_v5orf")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.672745, 0, 0)
+radius = 0.435
+material = SubResource("StandardMaterial3D_v5orf")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40157, 0, 0)
+radius = 0.39
+material = SubResource("StandardMaterial3D_v5orf")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01841, 0, 0)
+radius = 0.33
+material = SubResource("StandardMaterial3D_v5orf")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52031, 0, 0)
+radius = 0.225
+material = SubResource("StandardMaterial3D_v5orf")
+
+[node name="SpineAnimator" type="Node" parent="." node_paths=PackedStringArray("bones")]
+script = ExtResource("1_u14fy")
+bones = [NodePath("../CSGSphere3D"), NodePath("../CSGSphere3D2"), NodePath("../CSGSphere3D3"), NodePath("../CSGSphere3D4"), NodePath("../CSGSphere3D5")]
+metadata/_custom_type_script = "uid://bb475dsswmiyu"
+
+[node name="Brain" type="Node" parent="."]
+script = ExtResource("3_4appx")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="bodypulse" type="Node" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_v5orf")
+metadata/_custom_type_script = "uid://bhtkod4qbxkx7"
+
+[node name="Wander" type="Node" parent="StateMachine"]
+script = ExtResource("3_7wjht")
+metadata/_custom_type_script = "uid://baw56rnhj0aqm"
+
+[node name="SeekBell" type="Node" parent="StateMachine"]
+
+[node name="Listen" type="Node" parent="StateMachine"]
