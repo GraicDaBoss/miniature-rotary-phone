@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://fogv3mf80t8b"]
+[gd_scene load_steps=7 format=3 uid="uid://fogv3mf80t8b"]
 
 [ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="1_msyrs"]
 [ext_resource type="Script" uid="uid://bklquyf8gnp32" path="res://gracedev/scenes/bellspawner.gd" id="2_mwkk7"]
 [ext_resource type="FontFile" uid="uid://drt4fpn7wqwoq" path="res://fonts/DOTMATRI.TTF" id="3_bh1x8"]
 [ext_resource type="Script" uid="uid://dkvltny4ee3bb" path="res://gracedev/scenes/harmonic_system.gd" id="4_7522o"]
+[ext_resource type="Script" uid="uid://bycphkfcnawqk" path="res://gracedev/scenes/start.gd" id="5_wrjh2"]
 
 [sub_resource type="Environment" id="Environment_mwkk7"]
 background_mode = 1
@@ -45,3 +46,6 @@ text = "Left click: place bell | Right click: change note | Space: perform"
 
 [node name="HarmonicSystem" type="Node3D" parent="."]
 script = ExtResource("4_7522o")
+
+[node name="Start" type="Node" parent="."]
+script = ExtResource("5_wrjh2")
