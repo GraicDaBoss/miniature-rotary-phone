@@ -33,7 +33,7 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	DebugDraw2D.set_text("SM: " + get_parent().name, current_state.get_script().resource_path.get_file() + " " + (global_state.get_script().resource_path.get_file() if global_state else ""))
 	
 	if current_state:

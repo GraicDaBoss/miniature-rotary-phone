@@ -16,12 +16,10 @@ height = 3.0684
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5orf"]
 albedo_color = Color(1, 0.670588, 1, 1)
 
-[node name="Body" type="Node3D"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="Body" type="CharacterBody3D"]
 script = ExtResource("1_v5orf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.0265527, -1.1647, 0, 1.1647, 0.0265527, 0, 0, 0, 1.165, 1.05448, 0, 0)
 shape = SubResource("CapsuleShape3D_u14fy")
 
@@ -66,8 +64,11 @@ script = ExtResource("3_4appx")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
-[node name="bodypulse" type="Node" parent="."]
+[node name="bodypulse" type="Node" parent="." node_paths=PackedStringArray("core_mesh", "body_light", "brain")]
 script = ExtResource("4_akux1")
+core_mesh = NodePath("../coremesh")
+body_light = NodePath("../coremesh/OmniLight3D")
+brain = NodePath("../Brain")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_v5orf")

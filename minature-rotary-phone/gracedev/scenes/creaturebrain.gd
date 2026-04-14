@@ -1,7 +1,7 @@
 class_name CreatureBrain extends Node
 
-@export var harmonic_system: HarmonicSystem
-@export var bell_spawner: bellSpawner
+@onready var harmonic_system: HarmonicSystem = get_tree().get_first_node_in_group("harmonic")
+@onready var bell_spawner: bellSpawner = get_tree().get_first_node_in_group("spawner")
 
 var last_note: Bell.Note = Bell.Note.C
 var energy: float = 0.0          # rises as more bells collected

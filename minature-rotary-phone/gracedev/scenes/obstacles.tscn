@@ -10,7 +10,6 @@ albedo_color = Color(0, 0, 0, 1)
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-visible = false
 shape = SubResource("BoxShape3D_ba1h0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]

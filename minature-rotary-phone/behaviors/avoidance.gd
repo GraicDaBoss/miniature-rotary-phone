@@ -40,7 +40,7 @@ func start_updating():
 func on_needs_updating():
 	needs_updating = true
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if needs_updating:
 		update_feelers()
 		needs_updating = false		

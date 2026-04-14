@@ -51,7 +51,7 @@ func ring():
 	var tween = create_tween()
 	tween.tween_property(glow, "light_energy", 4.0, 0.1)
 	tween.tween_property(glow, "light_energy", 1.5, 0.6)
-	var float_timer: float = 0.0
+	
 
 
 	
