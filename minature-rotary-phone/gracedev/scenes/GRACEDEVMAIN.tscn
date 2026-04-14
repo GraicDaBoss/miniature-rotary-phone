@@ -13,11 +13,11 @@
 background_mode = 1
 background_color = Color(0, 0, 0.137255, 1)
 ambient_light_color = Color(0.375073, 1.71105e-05, 0.299194, 1)
+ambient_light_energy = 11.85
 fog_light_color = Color(0.0774674, 0.123423, 0.138376, 1)
 fog_density = 0.0043
 fog_sky_affect = 0.511
 fog_height_density = -5.1494
-volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0, 0, 0.141176, 1)
 volumetric_fog_emission = Color(4.09111e-07, 0, 0.289939, 1)
 
@@ -25,6 +25,7 @@ volumetric_fog_emission = Color(4.09111e-07, 0, 0.289939, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 20, 35)
+fov = 47.0
 far = 1000.0
 script = ExtResource("1_msyrs")
 can_move = false
@@ -36,8 +37,10 @@ environment = SubResource("Environment_mwkk7")
 light_color = Color(0, 0.574951, 0.575365, 1)
 light_energy = 0.4
 
-[node name="BellSpawner" type="Node3D" parent="."]
+[node name="BellSpawner" type="Node3D" parent="." node_paths=PackedStringArray("camera") groups=["spawner"]]
 script = ExtResource("2_mwkk7")
+bell_scene = ExtResource("8_cwcrp")
+camera = NodePath("../Camera3D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -47,17 +50,19 @@ offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("3_bh1x8")
 text = "Left click: place bell | Right click: change note | Space: perform"
 
-[node name="HarmonicSystem" type="Node3D" parent="."]
+[node name="HarmonicSystem" type="Node3D" parent="." groups=["harmonic"]]
 script = ExtResource("4_7522o")
 
-[node name="Start" type="Node" parent="."]
+[node name="Start" type="Node" parent="." node_paths=PackedStringArray("creature", "bell_spawner")]
 script = ExtResource("5_wrjh2")
+creature = NodePath("../Body")
+bell_spawner = NodePath("../BellSpawner")
 
 [node name="Bell" parent="." instance=ExtResource("8_cwcrp")]
 transform = Transform3D(2.45, 0, 0, 0, 2.45, 0, 0, 0, 2.45, -8.81537, 0, 0)
 
 [node name="Body" parent="." instance=ExtResource("7_p5thx")]
-transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, 3.42023, 0, 0)
+transform = Transform3D(3.95, 0, 0, 0, 3.95, 0, 0, 0, 3.95, 3.42023, 0, 0)
 
 [node name="Obstacles" parent="." instance=ExtResource("6_ks0uo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79856, 0, -4.25195)

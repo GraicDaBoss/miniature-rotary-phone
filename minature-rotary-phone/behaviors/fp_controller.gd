@@ -1,10 +1,6 @@
 extends Node3D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 @export var sensitivity = 0.1
 @export var speed:float = 1.0
 

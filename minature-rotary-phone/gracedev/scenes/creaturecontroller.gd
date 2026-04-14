@@ -8,9 +8,10 @@ class_name CreatureController extends CharacterBody3D
 var steering_force: Vector3 = Vector3.ZERO
 
 func _physics_process(delta):
+	#print("steering: ", steering_force, " velocity: ", velocity)
 	
 	if global_position.length() > bounds:
-		steering_force += seek_force(Vector3.ZERO) * 3.0
+			steering_force += seek_force(Vector3.ZERO) * 3.0
 
 	velocity += (steering_force / mass) * delta
 	velocity = velocity.limit_length(max_speed)
