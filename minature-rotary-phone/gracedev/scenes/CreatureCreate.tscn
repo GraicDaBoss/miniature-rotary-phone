@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://b3slrwk8oofu6"]
 
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_u14fy"]
-[ext_resource type="Script" path="res://gracedev/scenes/creaturecontroller.gd" id="1_v5orf"]
+[ext_resource type="Script" uid="uid://cxn1a1nj6cjo1" path="res://gracedev/scenes/creaturecontroller.gd" id="1_v5orf"]
 [ext_resource type="Script" uid="uid://bhtkod4qbxkx7" path="res://behaviors/state_machine.gd" id="2_v5orf"]
-[ext_resource type="Script" path="res://gracedev/scenes/creaturebrain.gd" id="3_4appx"]
+[ext_resource type="Script" uid="uid://hvh6pmo3lg7e" path="res://gracedev/scenes/creaturebrain.gd" id="3_4appx"]
 [ext_resource type="Script" uid="uid://baw56rnhj0aqm" path="res://behaviors/wander.gd" id="3_7wjht"]
 [ext_resource type="Script" uid="uid://jjubygf4tyb4" path="res://gracedev/scenes/bodypulse.gd" id="4_akux1"]
-[ext_resource type="Script" path="res://gracedev/scenes/seek_bell.gd" id="6_4appx"]
+[ext_resource type="Script" uid="uid://cfj6q7selmpm2" path="res://gracedev/scenes/seek_bell.gd" id="6_4appx"]
 [ext_resource type="Script" uid="uid://ckpjhyfcwgxtf" path="res://gracedev/scenes/listen.gd" id="7_s1b8a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u14fy"]
