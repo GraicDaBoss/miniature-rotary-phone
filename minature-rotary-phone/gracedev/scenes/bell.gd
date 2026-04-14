@@ -4,6 +4,8 @@ enum Note { C, D, E, G, A }
 
 @export var note: Note = Note.C
 @export var base_pitch: AudioStream  
+var float_timer: float = 0.0
+var base_y: float = 0.0
 
 var pitch_map = {
 	Note.C: 1.0,
@@ -39,12 +41,21 @@ func _ready():
 	mat.albedo_color = colour_map[note]
 	mesh.material = mat
 
+func _process(delta):
+	float_timer += delta
+	position.y = base_y + sin(float_timer * 1.2) * 0.15
+
 func ring():
 	audio.play()
 	# Flash brighter on ring
 	var tween = create_tween()
 	tween.tween_property(glow, "light_energy", 4.0, 0.1)
 	tween.tween_property(glow, "light_energy", 1.5, 0.6)
+	var float_timer: float = 0.0
+
+
+	
+
 
 func collect():
 	collected = true
