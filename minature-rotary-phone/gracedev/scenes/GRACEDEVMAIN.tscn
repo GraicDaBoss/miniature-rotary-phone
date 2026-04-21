@@ -11,7 +11,7 @@
 
 [sub_resource type="Environment" id="Environment_mwkk7"]
 background_mode = 1
-background_color = Color(0, 0, 0.137255, 1)
+background_color = Color(0, 0.0496446, 0.999985, 1)
 ambient_light_color = Color(0.375073, 1.71105e-05, 0.299194, 1)
 ambient_light_energy = 11.85
 fog_light_color = Color(0.0774674, 0.123423, 0.138376, 1)

@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="9_y6gmi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_y6gmi"]
-radius = 2.44157
+radius = 2.612
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5orf"]
 albedo_color = Color(1, 0.670588, 1, 1)
@@ -23,7 +23,6 @@ script = ExtResource("1_v5orf")
 max_speed = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.80535)
 shape = SubResource("SphereShape3D_y6gmi")
 
 [node name="coremesh" type="CSGSphere3D" parent="."]
@@ -34,32 +33,32 @@ light_energy = 1.449
 light_indirect_energy = 1.185
 light_size = 1.29
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="coremesh"]
 material = SubResource("StandardMaterial3D_v5orf")
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="coremesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.724715)
 radius = 0.435
 material = SubResource("StandardMaterial3D_v5orf")
 
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="coremesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 0, -1.27688)
 radius = 0.39
 material = SubResource("StandardMaterial3D_v5orf")
 
-[node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="coremesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.81179)
 radius = 0.33
 material = SubResource("StandardMaterial3D_v5orf")
 
-[node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="coremesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.22591)
 radius = 0.225
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="SpineAnimator" type="Node" parent="." node_paths=PackedStringArray("bones")]
 script = ExtResource("1_u14fy")
-bones = [NodePath("../coremesh"), NodePath("../CSGSphere3D"), NodePath("../CSGSphere3D2"), NodePath("../CSGSphere3D3"), NodePath("../CSGSphere3D4"), NodePath("../CSGSphere3D5"), NodePath("../CollisionShape3D")]
+bones = [NodePath("../coremesh"), NodePath("../coremesh/CSGSphere3D"), NodePath("../coremesh/CSGSphere3D2"), NodePath("../coremesh/CSGSphere3D3"), NodePath("../coremesh/CSGSphere3D4"), NodePath("../coremesh/CSGSphere3D5")]
 metadata/_custom_type_script = "uid://bb475dsswmiyu"
 
 [node name="Brain" type="Node" parent="."]

@@ -11,7 +11,7 @@ func calculateOffsets():
 	for i in bones.size():
 		if i > 0:
 			var offset = bones[i].global_transform.origin - bones[i-1].global_transform.origin
-			# offset = bones[i-1].global_transform.basis.xform_inv(offset)
+			#offset = bones[i-1].global_transform.basis.xform_inv(offset)
 			offset = bones[i-1].global_transform.basis.inverse() * offset
 			offsets.push_back(offset)
 
