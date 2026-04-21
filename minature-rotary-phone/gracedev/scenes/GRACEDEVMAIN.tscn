@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://drt4fpn7wqwoq" path="res://fonts/DOTMATRI.TTF" id="3_bh1x8"]
 [ext_resource type="Script" uid="uid://dkvltny4ee3bb" path="res://gracedev/scenes/harmonic_system.gd" id="4_7522o"]
 [ext_resource type="Script" uid="uid://bycphkfcnawqk" path="res://gracedev/scenes/start.gd" id="5_wrjh2"]
-[ext_resource type="PackedScene" uid="uid://ccdx5y61t3kry" path="res://gracedev/scenes/obstacles.tscn" id="6_ks0uo"]
+[ext_resource type="PackedScene" uid="uid://bfsappinqc08l" path="res://gracedev/scenes/obstacles.tscn" id="6_ks0uo"]
 [ext_resource type="PackedScene" uid="uid://b3slrwk8oofu6" path="res://gracedev/scenes/CreatureCreate.tscn" id="7_p5thx"]
 [ext_resource type="PackedScene" uid="uid://berfs2defofnx" path="res://gracedev/scenes/BELLS.tscn" id="8_cwcrp"]
 
@@ -62,7 +62,7 @@ bell_spawner = NodePath("../BellSpawner")
 transform = Transform3D(2.45, 0, 0, 0, 2.45, 0, 0, 0, 2.45, -8.81537, 0, 0)
 
 [node name="Body" parent="." instance=ExtResource("7_p5thx")]
-transform = Transform3D(3.95, 0, 0, 0, 3.95, 0, 0, 0, 3.95, 3.42023, 0, 0)
+bounds = 20.0
 
 [node name="Obstacles" parent="." instance=ExtResource("6_ks0uo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79856, 0, -4.25195)

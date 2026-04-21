@@ -1,0 +1,32 @@
+class_name wander extends State
+
+var timer: float = 0.0
+var wander_target: Vector3 = Vector3.ZERO
+
+func _enter():
+	print("Wandering")
+	_pick_new_target()
+
+func _think():
+	var boid = state_machine.boid
+	
+	timer += get_process_delta_time()
+	if timer > 3.0:
+		_pick_new_target()
+		timer = 0.0
+	
+	boid.steering_force += boid.seek_force(wander_target)
+	
+	var brain = boid.get_node("Brain")
+	if brain.is_performing:
+		var next = brain.get_next_bell()
+		if next:
+			brain.current_target = next
+			state_machine.change_state(seek_bell.new())
+
+func _pick_new_target():
+	wander_target = Vector3(
+		randf_range(-10.0, 10.0),
+		0.0,
+		randf_range(-10.0, 10.0)
+	)

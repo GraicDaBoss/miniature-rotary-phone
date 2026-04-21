@@ -17,7 +17,7 @@ func calculateOffsets():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	calculateOffsets()
+	call_deferred("calculateOffsets")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,6 +39,6 @@ func _physics_process(delta):
 		
 		# Why?
 		var target_rot = prev.global_transform.looking_at(next.global_transform.origin, prev.global_transform.basis.y).basis.orthonormalized()			
-		# var next_rot = nextRot.slerp(prevRot, angular_damping * delta).orthonormalized()		 
+		#var next_rot = nextRot.slerp(prevRot, angular_damping * delta).orthonormalized()		 
 		next.global_transform.basis = next.global_transform.basis.slerp(target_rot, angular_damping * delta).orthonormalized()
 		
