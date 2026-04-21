@@ -1,7 +1,7 @@
-extends Node3D
+extends Node
 
 @export var creature: CreatureController
-@export var bell_spawner: BellSpawner
+@export var bell_spawner: bellSpawner
 
 func _input(event):
 	if event is InputEventKey:

@@ -24,4 +24,4 @@ func _process(delta):
 	# During ListenState, add a sway to the whole body
 	if brain.is_performing:
 		var sway = sin(pulse_timer * rate * 0.5) * brain.energy * 0.15
-		get_parent().get_node("Body").rotation.z = sway
+		get_parent().rotation.z = sway

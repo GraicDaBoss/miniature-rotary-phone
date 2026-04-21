@@ -16,11 +16,11 @@ radius = 0.3
 script = ExtResource("1_64fwf")
 base_pitch = ExtResource("2_ojdap")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+[node name="Mesh" type="CSGSphere3D" parent="."]
 radius = 0.3
 material = SubResource("StandardMaterial3D_evy8u")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="GlowLight" type="OmniLight3D" parent="."]
 
 [node name="Area3D" type="Area3D" parent="."]
 

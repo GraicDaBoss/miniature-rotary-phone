@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccdx5y61t3kry"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ba1h0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qoym"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Obstacles" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ba1h0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+material = SubResource("StandardMaterial3D_3qoym")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="StaticBody3D/CSGBox3D"]
+light_color = Color(1, 0.0765879, 0.455968, 1)
+light_energy = 1.989
+light_indirect_energy = 1.2
+light_size = 0.073

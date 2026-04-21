@@ -1,20 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://fogv3mf80t8b"]
+[gd_scene load_steps=10 format=3 uid="uid://fogv3mf80t8b"]
 
 [ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="1_msyrs"]
 [ext_resource type="Script" uid="uid://bklquyf8gnp32" path="res://gracedev/scenes/bellspawner.gd" id="2_mwkk7"]
 [ext_resource type="FontFile" uid="uid://drt4fpn7wqwoq" path="res://fonts/DOTMATRI.TTF" id="3_bh1x8"]
 [ext_resource type="Script" uid="uid://dkvltny4ee3bb" path="res://gracedev/scenes/harmonic_system.gd" id="4_7522o"]
 [ext_resource type="Script" uid="uid://bycphkfcnawqk" path="res://gracedev/scenes/start.gd" id="5_wrjh2"]
+[ext_resource type="PackedScene" uid="uid://ccdx5y61t3kry" path="res://gracedev/scenes/obstacles.tscn" id="6_ks0uo"]
+[ext_resource type="PackedScene" uid="uid://b3slrwk8oofu6" path="res://gracedev/scenes/CreatureCreate.tscn" id="7_p5thx"]
+[ext_resource type="PackedScene" uid="uid://berfs2defofnx" path="res://gracedev/scenes/BELLS.tscn" id="8_cwcrp"]
 
 [sub_resource type="Environment" id="Environment_mwkk7"]
 background_mode = 1
-background_color = Color(0, 0, 0.137255, 1)
+background_color = Color(0, 0.0496446, 0.999985, 1)
 ambient_light_color = Color(0.375073, 1.71105e-05, 0.299194, 1)
+ambient_light_energy = 11.85
 fog_light_color = Color(0.0774674, 0.123423, 0.138376, 1)
 fog_density = 0.0043
 fog_sky_affect = 0.511
 fog_height_density = -5.1494
-volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0, 0, 0.141176, 1)
 volumetric_fog_emission = Color(4.09111e-07, 0, 0.289939, 1)
 
@@ -22,6 +25,7 @@ volumetric_fog_emission = Color(4.09111e-07, 0, 0.289939, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 20, 35)
+fov = 47.0
 far = 1000.0
 script = ExtResource("1_msyrs")
 can_move = false
@@ -33,8 +37,10 @@ environment = SubResource("Environment_mwkk7")
 light_color = Color(0, 0.574951, 0.575365, 1)
 light_energy = 0.4
 
-[node name="BellSpawner" type="Node3D" parent="."]
+[node name="BellSpawner" type="Node3D" parent="." node_paths=PackedStringArray("camera") groups=["spawner"]]
 script = ExtResource("2_mwkk7")
+bell_scene = ExtResource("8_cwcrp")
+camera = NodePath("../Camera3D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -44,8 +50,19 @@ offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("3_bh1x8")
 text = "Left click: place bell | Right click: change note | Space: perform"
 
-[node name="HarmonicSystem" type="Node3D" parent="."]
+[node name="HarmonicSystem" type="Node3D" parent="." groups=["harmonic"]]
 script = ExtResource("4_7522o")
 
-[node name="Start" type="Node" parent="."]
+[node name="Start" type="Node" parent="." node_paths=PackedStringArray("creature", "bell_spawner")]
 script = ExtResource("5_wrjh2")
+creature = NodePath("../Body")
+bell_spawner = NodePath("../BellSpawner")
+
+[node name="Bell" parent="." instance=ExtResource("8_cwcrp")]
+transform = Transform3D(2.45, 0, 0, 0, 2.45, 0, 0, 0, 2.45, -8.81537, 0, 0)
+
+[node name="Body" parent="." instance=ExtResource("7_p5thx")]
+transform = Transform3D(3.95, 0, 0, 0, 3.95, 0, 0, 0, 3.95, 3.42023, 0, 0)
+
+[node name="Obstacles" parent="." instance=ExtResource("6_ks0uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79856, 0, -4.25195)

@@ -1,12 +1,16 @@
 class_name CreatureBrain extends Node
 
-@export var harmonic_system: HarmonicSystem
-@export var bell_spawner: bellSpawner
+var harmonic_system: HarmonicSystem
+var bell_spawner: bellSpawner
 
 var last_note: Bell.Note = Bell.Note.C
-var energy: float = 0.0          # rises as more bells collected
+var energy: float = 0.0
 var is_performing: bool = false
 var current_target: Bell = null
+
+func _ready():
+	harmonic_system = get_tree().get_first_node_in_group("harmonic")
+	bell_spawner = get_tree().get_first_node_in_group("spawner")
 
 func start_performance():
 	is_performing = true
@@ -17,6 +21,8 @@ func on_bell_collected(bell: Bell):
 	energy = clamp(energy + 0.2, 0.0, 1.0)
 
 func get_next_bell() -> Bell:
+	if not bell_spawner or not harmonic_system:
+		return null
 	var all_bells = bell_spawner.placed_bells
 	return harmonic_system.get_nearest_valid_bell(
 		get_parent().global_position,
