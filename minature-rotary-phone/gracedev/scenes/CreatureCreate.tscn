@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3slrwk8oofu6"]
+[gd_scene load_steps=12 format=3 uid="uid://b3slrwk8oofu6"]
 
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_u14fy"]
 [ext_resource type="Script" uid="uid://cxn1a1nj6cjo1" path="res://gracedev/scenes/creaturecontroller.gd" id="1_v5orf"]
 [ext_resource type="Script" uid="uid://bhtkod4qbxkx7" path="res://behaviors/state_machine.gd" id="2_v5orf"]
+[ext_resource type="Texture2D" uid="uid://ky4l01t2mffl" path="res://gracedev/assets/9e866fc44ff0f1bd36d65cd3c7655974.jpg" id="2_y6gmi"]
 [ext_resource type="Script" uid="uid://hvh6pmo3lg7e" path="res://gracedev/scenes/creaturebrain.gd" id="3_4appx"]
 [ext_resource type="Script" uid="uid://jjubygf4tyb4" path="res://gracedev/scenes/bodypulse.gd" id="4_akux1"]
 [ext_resource type="Script" uid="uid://cfj6q7selmpm2" path="res://gracedev/scenes/seek_bell.gd" id="6_4appx"]
@@ -10,13 +11,16 @@
 [ext_resource type="Script" uid="uid://07kguuv5q4rw" path="res://gracedev/scenes/wander.gd" id="8_akux1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6gmi"]
+albedo_texture = ExtResource("2_y6gmi")
 emission_enabled = true
-emission = Color(0.654232, 0.654232, 0.654232, 1)
+emission = Color(0.576544, 0.626088, 0.950021, 1)
+emission_energy_multiplier = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5orf"]
-albedo_color = Color(1, 0.670588, 1, 1)
+albedo_texture = ExtResource("2_y6gmi")
 emission_enabled = true
-emission = Color(0.856067, 0.856067, 0.856067, 1)
+emission = Color(0.656244, 0.665625, 0.981798, 1)
+emission_energy_multiplier = 0.2
 
 [node name="Body" type="Node3D"]
 script = ExtResource("1_v5orf")
@@ -25,16 +29,17 @@ max_force = 4.0
 mass = 2.0
 bounds = 100.0
 
-[node name="coremesh" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.295141)
-radius = 0.6
-material = SubResource("StandardMaterial3D_y6gmi")
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.30111)
 light_color = Color(0.418712, 1, 0.933755, 1)
 light_energy = 1.449
 light_indirect_energy = 1.185
 light_size = 1.29
+
+[node name="coremesh" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.295141)
+radius = 0.6
+material = SubResource("StandardMaterial3D_y6gmi")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.739822)
