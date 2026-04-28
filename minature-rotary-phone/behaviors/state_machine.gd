@@ -13,10 +13,10 @@ func change_state(new_state):
 	print(str(boid) + "\t" + new_state.get_class())
 	if current_state:
 		current_state._exit()
-		boid.call_deferred("remove_child", current_state);
+		call_deferred("remove_child", current_state)
 	current_state = new_state
 	if current_state:
-		boid.add_child(current_state);
+		add_child(current_state)
 		current_state._enter()
 	
 func _ready():

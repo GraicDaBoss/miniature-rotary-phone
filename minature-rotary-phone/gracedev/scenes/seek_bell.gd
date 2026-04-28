@@ -8,16 +8,16 @@ func _enter():
 
 func _think():
 	if not target or target.collected:
-		state_machine.change_state(WanderState.new())
+		state_machine.change_state(wander.new())
 		
 		return
 
 	var boid = state_machine.boid
 	boid.steering_force = boid.arrive_force(target.global_position, 3.0)
-	boid.steering_force += boid.get_avoidance_force()
+	#boid.steering_force += boid.get_avoidance_force()
 
 	# Arrived
-	if boid.global_position.distance_to(target.global_position) < 1.0:
+	if boid.global_position.distance_to(target.global_position) < 2.5:
 		target.ring()
 		state_machine.boid.get_node("Brain").on_bell_collected(target)
 		target.collect()

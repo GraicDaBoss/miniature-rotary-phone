@@ -22,6 +22,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	print("offsets count: ", offsets.size())
 	for i in offsets.size():
 		var prev = bones[i]
 		var next = bones[i + 1]

@@ -26,6 +26,7 @@ mass = 2.0
 bounds = 100.0
 
 [node name="coremesh" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.295141)
 radius = 0.6
 material = SubResource("StandardMaterial3D_y6gmi")
 
@@ -40,29 +41,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.739822)
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.46454)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.62939)
 radius = 0.435
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 0, -2.0167)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 0, -2.44816)
 radius = 0.39
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.55161)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.17379)
 radius = 0.33
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.96573)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.7482)
 radius = 0.225
 material = SubResource("StandardMaterial3D_v5orf")
-
-[node name="SpineAnimator" type="Node" parent="." node_paths=PackedStringArray("bones")]
-script = ExtResource("1_u14fy")
-bones = [NodePath("../coremesh"), NodePath("../CSGSphere3D"), NodePath("../CSGSphere3D2"), NodePath("../CSGSphere3D3"), NodePath("../CSGSphere3D4"), NodePath("../CSGSphere3D5")]
-metadata/_custom_type_script = "uid://bb475dsswmiyu"
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("3_4appx")
@@ -74,6 +70,13 @@ script = ExtResource("4_akux1")
 core_mesh = NodePath("../coremesh")
 body_light = NodePath("../OmniLight3D")
 brain = NodePath("../Brain")
+
+[node name="SpineAnimator" type="Node" parent="." node_paths=PackedStringArray("bones")]
+script = ExtResource("1_u14fy")
+bones = [NodePath("../coremesh"), NodePath("../CSGSphere3D"), NodePath("../CSGSphere3D2"), NodePath("../CSGSphere3D3"), NodePath("../CSGSphere3D4"), NodePath("../CSGSphere3D5")]
+damping = 0.05
+angular_damping = 1.0
+metadata/_custom_type_script = "uid://bb475dsswmiyu"
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_v5orf")

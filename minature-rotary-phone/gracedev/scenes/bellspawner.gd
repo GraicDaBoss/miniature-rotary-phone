@@ -29,6 +29,7 @@ func _place_bell():
 	if ray_dir.y != 0:
 		var t = (0.0 - ray_origin.y) / ray_dir.y
 		var pos = ray_origin + ray_dir * t
+		pos.y = 1.0
 		var bell = bell_scene.instantiate()
 		bell.note = note_cycle[current_note_index]
 		bell.position = pos
