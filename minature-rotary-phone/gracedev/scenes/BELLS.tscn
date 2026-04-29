@@ -20,6 +20,7 @@ script = ExtResource("1_64fwf")
 base_pitch = ExtResource("2_ojdap")
 
 [node name="Mesh" type="CSGSphere3D" parent="."]
+transform = Transform3D(2.11508, 0, 0, 0, 1.89387, 0, 0, 0, 2.24834, 0, 0, 0)
 radius = 0.3
 material = SubResource("StandardMaterial3D_evy8u")
 

@@ -30,38 +30,39 @@ mass = 2.0
 bounds = 100.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.30111)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4387)
 light_color = Color(0.418712, 1, 0.933755, 1)
 light_energy = 1.449
 light_indirect_energy = 1.185
 light_size = 1.29
+omni_range = 11.821
 
 [node name="coremesh" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.295141)
+transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, 1.05598)
 radius = 0.6
 material = SubResource("StandardMaterial3D_y6gmi")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.739822)
+transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, -0.336505)
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.62939)
+transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, -1.53336)
 radius = 0.435
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 0, -2.44816)
+transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, -1.25693e-06, 0, -2.63497)
 radius = 0.39
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.17379)
+transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, -3.61126)
 radius = 0.33
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.7482)
+transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, -4.3841)
 radius = 0.225
 material = SubResource("StandardMaterial3D_v5orf")
 
@@ -79,9 +80,6 @@ brain = NodePath("../Brain")
 [node name="SpineAnimator" type="Node" parent="." node_paths=PackedStringArray("bones")]
 script = ExtResource("1_u14fy")
 bones = [NodePath("../coremesh"), NodePath("../CSGSphere3D"), NodePath("../CSGSphere3D2"), NodePath("../CSGSphere3D3"), NodePath("../CSGSphere3D4"), NodePath("../CSGSphere3D5")]
-damping = 0.05
-angular_damping = 1.0
-metadata/_custom_type_script = "uid://bb475dsswmiyu"
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_v5orf")

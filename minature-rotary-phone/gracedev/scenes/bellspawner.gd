@@ -11,6 +11,8 @@ var current_note_index: int = 0
 var placed_bells: Array = []
 var placement_active: bool = true
 
+var note_names = ["C", "D", "E", "G", "A"]
+
 func _input(event):
 	if not placement_active:
 		return
@@ -18,8 +20,8 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			_place_bell()
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			# Cycle note manually
 			current_note_index = (current_note_index + 1) % note_cycle.size()
+			print("Selected note: ", note_names[current_note_index])
 
 func _place_bell():
 	var mouse = get_viewport().get_mouse_position()

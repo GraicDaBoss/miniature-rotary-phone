@@ -21,10 +21,9 @@ buses/default_bus_layout="res://behaviors/default_bus_layout.tres"
 
 [debug_draw_3d]
 
-settings/initial_debug_state=false
-settings/3d/add_bevel_to_volumetric_geometry=false
 settings/3d/use_icosphere_for_hd=false
 settings/updates/check_for_updates=false
+settings/3d/use_icosphere=true
 
 [display]
 
