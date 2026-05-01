@@ -17,7 +17,7 @@ radius = 0.3
 
 [node name="Bell" type="Node3D"]
 script = ExtResource("1_64fwf")
-base_pitch = ExtResource("2_ojdap")
+bell_sample = ExtResource("2_ojdap")
 
 [node name="Mesh" type="CSGSphere3D" parent="."]
 transform = Transform3D(2.11508, 0, 0, 0, 1.89387, 0, 0, 0, 2.24834, 0, 0, 0)
@@ -33,3 +33,4 @@ shape = SubResource("SphereShape3D_64fwf")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_ojdap")
+max_distance = 67.15

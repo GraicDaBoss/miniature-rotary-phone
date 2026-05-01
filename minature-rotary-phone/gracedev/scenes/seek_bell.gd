@@ -1,24 +1,37 @@
-class_name seek_bell extends State
+class_name seek_bell
+extends State
 
 var target: Bell
 
 func _enter():
-	target = state_machine.boid.get_node("Brain").current_target
-	print("Seeking bell: ", target.note)
+	var brain = state_machine.boid.get_node("Brain")
+	target = brain.current_target
+
+	# Immediate validation
+	if not is_instance_valid(target) or target.collected:
+		brain.current_target = null
+		state_machine.change_state(wander.new())
 
 func _think():
-	if not target or target.collected:
+	var boid = state_machine.boid
+	var brain = boid.get_node("Brain")
+
+	# Re-check validity every frame
+	if not is_instance_valid(target) or target.collected:
+		brain.current_target = null
 		state_machine.change_state(wander.new())
-		
 		return
 
-	var boid = state_machine.boid
-	boid.steering_force = boid.arrive_force(target.global_position, 3.0)
-	#boid.steering_force += boid.get_avoidance_force()
+	# Steering
+	boid.steering_force += brain.get_avoidance_from_invalid_bells()
+	boid.steering_force += boid.arrive_force(target.global_position, 3.0)
 
-	# Arrived
+	# Arrival
 	if boid.global_position.distance_to(target.global_position) < 2.5:
 		target.ring()
-		state_machine.boid.get_node("Brain").on_bell_collected(target)
-		target.collect()
+		brain.on_bell_collected(target)
+
+		# REMOVE collect() call ❌
+		# target.collect()
+
 		state_machine.change_state(listen.new())

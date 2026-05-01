@@ -55,16 +55,18 @@ text = "Left click: place bell | Right click: change note | Space: perform"
 [node name="HarmonicSystem" type="Node3D" parent="." groups=["harmonic"]]
 script = ExtResource("4_7522o")
 
-[node name="Start" type="Node" parent="." node_paths=PackedStringArray("creature", "bell_spawner")]
+[node name="Start" type="Node" parent="." node_paths=PackedStringArray("bell_spawner")]
 script = ExtResource("5_wrjh2")
-creature = NodePath("../Body")
 bell_spawner = NodePath("../BellSpawner")
-
-[node name="Bell" parent="." instance=ExtResource("8_cwcrp")]
-transform = Transform3D(2.45, 0, 0, 0, 2.45, 0, 0, 0, 2.45, -8.81537, 0, 0)
 
 [node name="Body" parent="." instance=ExtResource("7_p5thx")]
 bounds = 20.0
 
 [node name="Obstacles" parent="." instance=ExtResource("6_ks0uo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79856, 0, -4.25195)
+transform = Transform3D(1, 0, 0, 0, 2.55024, 0, 0, 0, 2.54857, -1.79856, 0, -4.25195)
+
+[node name="Obstacles2" parent="." instance=ExtResource("6_ks0uo")]
+transform = Transform3D(1, 0, 0, 0, 3.48406, 0, 0, 0, 1, 4.92674, 0, -4.25195)
+
+[node name="Obstacles3" parent="." instance=ExtResource("6_ks0uo")]
+transform = Transform3D(3.99655, 0, 0, 0, 1, 0, 0, 0, 1, -1.79856, 0, 2.1359)

@@ -71,4 +71,4 @@ func _physics_process(delta):
 			var target_basis = Basis(right, up, dir)
 			var t = 1.0 - exp(-angular_damping * delta)
 
-			curr.global_transform.basis = curr.global_transform.basis.slerp(target_basis, t).orthonormalized()
+			#curr.global_transform.basis = curr.global_transform.basis.slerp(target_basis, t).orthonormalized()
