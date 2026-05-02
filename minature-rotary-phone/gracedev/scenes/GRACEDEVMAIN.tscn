@@ -63,10 +63,10 @@ bell_spawner = NodePath("../BellSpawner")
 bounds = 20.0
 
 [node name="Obstacles" parent="." instance=ExtResource("6_ks0uo")]
-transform = Transform3D(1, 0, 0, 0, 2.55024, 0, 0, 0, 2.54857, -1.79856, 0, -4.25195)
+transform = Transform3D(2.15648, 0, 0, 0, 12.0166, 0, 0, 0, 5.32284, -4.39112, 0, -6.5698)
 
 [node name="Obstacles2" parent="." instance=ExtResource("6_ks0uo")]
-transform = Transform3D(1, 0, 0, 0, 3.48406, 0, 0, 0, 1, 4.92674, 0, -4.25195)
+transform = Transform3D(2.15648, 0, 0, 0, 5.61579, 0, 0, 0, 2.08856, 10.1119, 0, -6.5698)
 
 [node name="Obstacles3" parent="." instance=ExtResource("6_ks0uo")]
-transform = Transform3D(3.99655, 0, 0, 0, 1, 0, 0, 0, 1, -1.79856, 0, 2.1359)
+transform = Transform3D(8.6185, 0, 0, 0, 1.61185, 0, 0, 0, 2.08856, -4.39112, 0, 6.7716)

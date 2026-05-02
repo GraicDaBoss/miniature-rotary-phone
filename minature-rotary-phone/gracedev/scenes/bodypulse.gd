@@ -15,7 +15,7 @@ func _process(delta):
 	var pulse = (sin(pulse_timer * rate) + 1.0) / 2.0  # 0 to 1
 
 	# Light pulse
-	body_light.light_energy = base_energy + pulse * brain.energy * 2.0
+	body_light.light_energy = base_energy + pulse * brain.energy * 7.0
 
 	# Scale ALL core meshes
 	var scale_val = 1.0 + pulse * 0.2 * brain.energy

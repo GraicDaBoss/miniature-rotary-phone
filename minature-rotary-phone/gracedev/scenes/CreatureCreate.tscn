@@ -45,6 +45,7 @@ omni_range = 11.821
 
 [node name="coremesh" type="CSGSphere3D" parent="."]
 transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, 0.10647)
+use_collision = true
 radius = 0.6
 material = SubResource("StandardMaterial3D_y6gmi")
 
@@ -71,25 +72,30 @@ material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, -1.15715)
+use_collision = true
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
 transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, -2.13598)
+use_collision = true
 radius = 0.435
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
 transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, -1.25693e-06, 0, -2.93336)
+use_collision = true
 radius = 0.39
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
 transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, -3.71063)
+use_collision = true
 radius = 0.33
 material = SubResource("StandardMaterial3D_v5orf")
 
 [node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
 transform = Transform3D(1.38159, 0, 0, 0, 1.30601, 0, 0, 0, 1.34544, 6.06519e-08, 0, -4.29914)
+use_collision = true
 radius = 0.225
 material = SubResource("StandardMaterial3D_v5orf")
 
