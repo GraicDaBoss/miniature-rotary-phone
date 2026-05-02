@@ -1,22 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://berfs2defofnx"]
+[gd_scene load_steps=6 format=3 uid="uid://berfs2defofnx"]
 
 [ext_resource type="Script" uid="uid://drn3entg5lvbn" path="res://gracedev/scenes/bell.gd" id="1_64fwf"]
 [ext_resource type="AudioStream" uid="uid://b4gso0aeqhjm7" path="res://gracedev/sounds/bell.wav" id="2_ojdap"]
+[ext_resource type="Texture2D" uid="uid://cx371t8t6co2x" path="res://gracedev/assets/texture.jpg" id="3_ojdap"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evy8u"]
-albedo_color = Color(0.956923, 0.962117, 0.991781, 1)
+albedo_color = Color(0.958365, 0.950031, 0.943768, 1)
+albedo_texture = ExtResource("3_ojdap")
+metallic = 0.15
 emission_enabled = true
-emission = Color(1, 0.827451, 0, 1)
-emission_energy_multiplier = 1.5
+emission = Color(1, 0.875605, 0.441785, 1)
+emission_energy_multiplier = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_64fwf"]
 radius = 0.3
 
 [node name="Bell" type="Node3D"]
 script = ExtResource("1_64fwf")
-base_pitch = ExtResource("2_ojdap")
+bell_sample = ExtResource("2_ojdap")
 
 [node name="Mesh" type="CSGSphere3D" parent="."]
+transform = Transform3D(2.11508, 0, 0, 0, 1.89387, 0, 0, 0, 2.24834, 0, 0, 0)
 radius = 0.3
 material = SubResource("StandardMaterial3D_evy8u")
 
@@ -29,3 +33,4 @@ shape = SubResource("SphereShape3D_64fwf")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_ojdap")
+max_distance = 67.15

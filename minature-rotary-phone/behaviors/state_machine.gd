@@ -27,12 +27,12 @@ func _ready():
 		# current_state._enter()
 	if global_state_path:
 		global_state = get_node(global_state_path)
-		# Ready may not have been called!
+		
 		global_state.call_deferred("_enter")
-		# current_state._enter()
+		
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta):
 	DebugDraw2D.set_text("SM: " + get_parent().name, current_state.get_script().resource_path.get_file() + " " + (global_state.get_script().resource_path.get_file() if global_state else ""))
 	

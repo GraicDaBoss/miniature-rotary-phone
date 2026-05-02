@@ -11,15 +11,17 @@
 
 [sub_resource type="Environment" id="Environment_mwkk7"]
 background_mode = 1
-background_color = Color(0, 0.0496446, 0.999985, 1)
+background_color = Color(0.000149031, 1.3236e-07, 0.221612, 1)
 ambient_light_color = Color(0.375073, 1.71105e-05, 0.299194, 1)
 ambient_light_energy = 11.85
 fog_light_color = Color(0.0774674, 0.123423, 0.138376, 1)
 fog_density = 0.0043
 fog_sky_affect = 0.511
 fog_height_density = -5.1494
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0143
 volumetric_fog_albedo = Color(0, 0, 0.141176, 1)
-volumetric_fog_emission = Color(4.09111e-07, 0, 0.289939, 1)
+volumetric_fog_emission = Color(5.05373e-07, 2.40654e-08, 0.321899, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -53,16 +55,18 @@ text = "Left click: place bell | Right click: change note | Space: perform"
 [node name="HarmonicSystem" type="Node3D" parent="." groups=["harmonic"]]
 script = ExtResource("4_7522o")
 
-[node name="Start" type="Node" parent="." node_paths=PackedStringArray("creature", "bell_spawner")]
+[node name="Start" type="Node" parent="." node_paths=PackedStringArray("bell_spawner")]
 script = ExtResource("5_wrjh2")
-creature = NodePath("../Body")
 bell_spawner = NodePath("../BellSpawner")
-
-[node name="Bell" parent="." instance=ExtResource("8_cwcrp")]
-transform = Transform3D(2.45, 0, 0, 0, 2.45, 0, 0, 0, 2.45, -8.81537, 0, 0)
 
 [node name="Body" parent="." instance=ExtResource("7_p5thx")]
 bounds = 20.0
 
 [node name="Obstacles" parent="." instance=ExtResource("6_ks0uo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79856, 0, -4.25195)
+transform = Transform3D(2.15648, 0, 0, 0, 12.0166, 0, 0, 0, 5.32284, -4.39112, 0, -6.5698)
+
+[node name="Obstacles2" parent="." instance=ExtResource("6_ks0uo")]
+transform = Transform3D(2.15648, 0, 0, 0, 5.61579, 0, 0, 0, 2.08856, 10.1119, 0, -6.5698)
+
+[node name="Obstacles3" parent="." instance=ExtResource("6_ks0uo")]
+transform = Transform3D(8.6185, 0, 0, 0, 1.61185, 0, 0, 0, 2.08856, -4.39112, 0, 6.7716)

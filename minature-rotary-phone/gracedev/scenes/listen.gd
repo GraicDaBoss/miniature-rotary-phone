@@ -11,13 +11,13 @@ func _enter():
 	
 	var spine = state_machine.boid.get_node_or_null("SpineAnimator")
 	if spine:
-		spine.damping = 3.0
+		#spine.damping = 3.0
 		spine.angular_damping = 8.0
 
 func _exit():
 	var spine = state_machine.boid.get_node_or_null("SpineAnimator")
 	if spine:
-		spine.damping = 7.0
+		#spine.damping = 7.0
 		spine.angular_damping = 20.0
 
 func _think():
