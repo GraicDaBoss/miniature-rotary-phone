@@ -13,7 +13,7 @@ var current_target: Bell = null
 # EMOTION SYSTEM
 # =========================
 var satisfaction: float = 1.0   # 1 = calm/happy, 0 = angry
-var anger_rate: float = 0.05
+var anger_rate: float = 0.009
 
 func _ready():
 	harmonic_system = get_tree().get_first_node_in_group("harmonic")
@@ -33,6 +33,7 @@ func _process(delta):
 func on_bell_collected(bell: Bell):
 	last_note = bell.get_note()
 	energy = clamp(energy + 0.2, 0.0, 1.0)
+	satisfaction = clamp(satisfaction + 0.3, 0.0, 1.0)
 
 # NEW: emotional feedback from player behaviour
 func on_bell_feedback(is_correct: bool):

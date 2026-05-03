@@ -15,6 +15,8 @@ func _enter():
 func _think():
 	var boid = state_machine.boid
 	var brain = boid.get_node("Brain")
+	
+	boid.steering_force += boid.get_obstacle_avoidance()
 
 	# Re-check validity every frame
 	if not is_instance_valid(target) or target.collected:

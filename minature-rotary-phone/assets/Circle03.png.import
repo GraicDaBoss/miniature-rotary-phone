@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt1ae6mfr2exf"
-path.s3tc="res://.godot/imported/tex_1.png-412a62c20cd74c1bec3f4fc86c360995.s3tc.ctex"
-path.etc2="res://.godot/imported/tex_1.png-412a62c20cd74c1bec3f4fc86c360995.etc2.ctex"
+uid="uid://wmnv6c18ygtv"
+path.s3tc="res://.godot/imported/Circle03.png-d443fe195489a3057e94b4dac3a9f6c9.s3tc.ctex"
+path.etc2="res://.godot/imported/Circle03.png-d443fe195489a3057e94b4dac3a9f6c9.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/tex_1.png"
-dest_files=["res://.godot/imported/tex_1.png-412a62c20cd74c1bec3f4fc86c360995.s3tc.ctex", "res://.godot/imported/tex_1.png-412a62c20cd74c1bec3f4fc86c360995.etc2.ctex"]
+source_file="res://assets/Circle03.png"
+dest_files=["res://.godot/imported/Circle03.png-d443fe195489a3057e94b4dac3a9f6c9.s3tc.ctex", "res://.godot/imported/Circle03.png-d443fe195489a3057e94b4dac3a9f6c9.etc2.ctex"]
 
 [params]
 

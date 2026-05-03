@@ -11,17 +11,23 @@
 
 [sub_resource type="Environment" id="Environment_mwkk7"]
 background_mode = 1
-background_color = Color(0.000149031, 1.3236e-07, 0.221612, 1)
-ambient_light_color = Color(0.375073, 1.71105e-05, 0.299194, 1)
-ambient_light_energy = 11.85
+background_color = Color(0.0204736, 0.0494745, 0.0541425, 1)
+background_energy_multiplier = 2.86
+ambient_light_color = Color(0.174768, 0.38628, 0.399251, 1)
+ambient_light_energy = 6.71
+glow_enabled = true
+glow_intensity = 1.39
+glow_bloom = 0.23
 fog_light_color = Color(0.0774674, 0.123423, 0.138376, 1)
+fog_light_energy = 0.57
 fog_density = 0.0043
-fog_sky_affect = 0.511
-fog_height_density = -5.1494
+fog_sky_affect = 0.266
+fog_height = 3.3
+fog_height_density = -5.3179
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0143
-volumetric_fog_albedo = Color(0, 0, 0.141176, 1)
-volumetric_fog_emission = Color(5.05373e-07, 2.40654e-08, 0.321899, 1)
+volumetric_fog_density = 0.0305
+volumetric_fog_albedo = Color(0.0169472, 0.23449, 0.931631, 1)
+volumetric_fog_emission = Color(0.0627451, 0.0627451, 0.196078, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -37,7 +43,8 @@ environment = SubResource("Environment_mwkk7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0, 0.574951, 0.575365, 1)
-light_energy = 0.4
+light_energy = 0.66
+light_size = 0.035
 
 [node name="BellSpawner" type="Node3D" parent="." node_paths=PackedStringArray("camera") groups=["spawner"]]
 script = ExtResource("2_mwkk7")
@@ -62,11 +69,11 @@ bell_spawner = NodePath("../BellSpawner")
 [node name="Body" parent="." instance=ExtResource("7_p5thx")]
 bounds = 20.0
 
-[node name="Obstacles" parent="." instance=ExtResource("6_ks0uo")]
+[node name="Obstacles" parent="." groups=["obstacles"] instance=ExtResource("6_ks0uo")]
 transform = Transform3D(2.15648, 0, 0, 0, 12.0166, 0, 0, 0, 5.32284, -4.39112, 0, -6.5698)
 
-[node name="Obstacles2" parent="." instance=ExtResource("6_ks0uo")]
+[node name="Obstacles2" parent="." groups=["obstacles"] instance=ExtResource("6_ks0uo")]
 transform = Transform3D(2.15648, 0, 0, 0, 5.61579, 0, 0, 0, 2.08856, 10.1119, 0, -6.5698)
 
-[node name="Obstacles3" parent="." instance=ExtResource("6_ks0uo")]
+[node name="Obstacles3" parent="." groups=["obstacles"] instance=ExtResource("6_ks0uo")]
 transform = Transform3D(8.6185, 0, 0, 0, 1.61185, 0, 0, 0, 2.08856, -4.39112, 0, 6.7716)
