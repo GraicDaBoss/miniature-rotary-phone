@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://fogv3mf80t8b"]
+[gd_scene load_steps=11 format=3 uid="uid://fogv3mf80t8b"]
 
 [ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="1_msyrs"]
 [ext_resource type="Script" uid="uid://bklquyf8gnp32" path="res://gracedev/scenes/bellspawner.gd" id="2_mwkk7"]
 [ext_resource type="FontFile" uid="uid://drt4fpn7wqwoq" path="res://fonts/DOTMATRI.TTF" id="3_bh1x8"]
 [ext_resource type="Script" uid="uid://dkvltny4ee3bb" path="res://gracedev/scenes/harmonic_system.gd" id="4_7522o"]
+[ext_resource type="Script" uid="uid://dr5s6y78t5jul" path="res://gracedev/scenes/canvas_layer.gd" id="4_p5thx"]
 [ext_resource type="Script" uid="uid://bycphkfcnawqk" path="res://gracedev/scenes/start.gd" id="5_wrjh2"]
 [ext_resource type="PackedScene" uid="uid://bfsappinqc08l" path="res://gracedev/scenes/obstacles.tscn" id="6_ks0uo"]
 [ext_resource type="PackedScene" uid="uid://b3slrwk8oofu6" path="res://gracedev/scenes/CreatureCreate.tscn" id="7_p5thx"]
@@ -51,14 +52,6 @@ script = ExtResource("2_mwkk7")
 bell_scene = ExtResource("8_cwcrp")
 camera = NodePath("../Camera3D")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 368.0
-offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("3_bh1x8")
-text = "Left click: place bell | Right click: change note | Space: perform"
-
 [node name="HarmonicSystem" type="Node3D" parent="." groups=["harmonic"]]
 script = ExtResource("4_7522o")
 
@@ -68,6 +61,24 @@ bell_spawner = NodePath("../BellSpawner")
 
 [node name="Body" parent="." instance=ExtResource("7_p5thx")]
 bounds = 20.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Body" node_paths=PackedStringArray("bell_spawner")]
+script = ExtResource("4_p5thx")
+bell_spawner = NodePath("../../BellSpawner")
+
+[node name="NoteLabel" type="Label" parent="Body/CanvasLayer"]
+offset_left = 93.0
+offset_top = 97.0
+offset_right = 256.0
+offset_bottom = 147.0
+theme_override_fonts/font = ExtResource("3_bh1x8")
+
+[node name="MoodLabel" type="Label" parent="Body/CanvasLayer"]
+offset_left = 93.0
+offset_top = 183.0
+offset_right = 258.0
+offset_bottom = 235.0
+theme_override_fonts/font = ExtResource("3_bh1x8")
 
 [node name="Obstacles" parent="." groups=["obstacles"] instance=ExtResource("6_ks0uo")]
 transform = Transform3D(2.15648, 0, 0, 0, 12.0166, 0, 0, 0, 5.32284, -4.39112, 0, -6.5698)

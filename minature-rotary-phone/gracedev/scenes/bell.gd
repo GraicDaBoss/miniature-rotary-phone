@@ -68,15 +68,10 @@ func _process(delta):
 			cooldown = 0.0
 
 func ring():
-	if collected:
-		return
+	print("ring() called")
 	audio.play()
-	collected = true
-	on_cooldown = true
-	# Trigger particles
 	if particles:
 		particles.restart()
-	# Glow flash
 	var tween = create_tween()
 	tween.tween_property(glow, "light_energy", 4.0, 0.1)
 	tween.tween_property(glow, "light_energy", 1.5, 0.8)
@@ -85,10 +80,13 @@ func collect():
 	if collected:
 		return
 	collected = true
-	# Actually remove the bell
+	# Wait for ring flash and audio to play before disappearing
+	await get_tree().create_timer(1.5).timeout
+	if not is_instance_valid(self):
+		return
 	var tween = create_tween()
-	tween.tween_property(mesh, "scale", Vector3.ZERO, 0.3)
-	tween.tween_property(glow, "light_energy", 0.0, 0.3)
+	tween.tween_property(mesh, "scale", Vector3.ZERO, 0.4)
+	tween.tween_property(glow, "light_energy", 0.0, 0.4)
 	tween.tween_callback(queue_free)
 
 func is_available() -> bool:
