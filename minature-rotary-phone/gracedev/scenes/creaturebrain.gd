@@ -4,7 +4,7 @@ extends Node
 var harmonic_system: HarmonicSystem
 var bell_spawner: bellSpawner
 
-var last_note: Bell.Note = Bell.Note.C
+var last_note: Bell.Note = Bell.Note.B
 var energy: float = 0.0
 var is_performing: bool = true
 var current_target: Bell = null
@@ -13,7 +13,7 @@ var current_target: Bell = null
 # EMOTION SYSTEM
 # =========================
 var satisfaction: float = 1.0
-var anger_rate: float = 0.005
+var anger_rate: float = 0.02
 
 var rejected_bells: Array = []
 
