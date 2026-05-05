@@ -37,7 +37,7 @@ The most original part of the project is HarmonicSystem. Rather than giving the 
 
 CreatureBrain calls get_nearest_valid_bell() which filters the placed bells array to only those matching the required next note, then returns the closest one by distance. The creature also applies a steering avoidance force away from bells that are the wrong note, so it doesn't just ignore them it actively steers around them.
 
-My initial method was a system in which the creature chose harmonically valid bells. There was a larger array of notes and at runtime a unique song was indeed played depending on which notes were placed and when, but this ended up creating a long script which used the same method as the major scale but just didn't sound as nice. Proof of this concept is linked here:
+My initial method was a system in which the creature chose harmonically valid bells. There was a larger array of notes and at runtime a unique song was indeed played depending on which notes were placed and when, but this ended up creating a long script which used the same method as the major scale but just didn't sound as nice.
 
 ---
 
