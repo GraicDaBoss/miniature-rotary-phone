@@ -12,6 +12,8 @@ This project is a glowing alien sea creature that inhabits a dark mysterious voi
 
 The concept was inspired by Harold Halibut, a game with a rich alien environment that feels genuinely inhabited. There's a small portion in this game in which bells and symbols are rang and the aliens react and I wanted to emulate this. I wanted something that felt like a smart instrument as well as a character with needs. It's an entity with its own internal logic that the player observes and composes around rather than directly controls.
 
+I used ClaudeAI to help me with debugging and making the initial harmonic table.
+
 ---
 
 ## Controls
@@ -68,9 +70,9 @@ This is an example of the open closed principle. Adding a new emotion or visual 
 
 ## What I Learned
 
-The biggest technical challenge was getting steering physics to work with Godot's scene architecture. My first approach used CharacterBody3D with move_and_slide() which fought constantly against the custom velocity — gravity, floor normals and physics layers all interfered with what should have been simple vector math. Switching to a plain Node3D that updates global_position directly each frame, exactly like the base repo's boid system, solved it immediately. The lesson was to understand what the engine is doing before fighting it.
+The biggest technical challenge was getting steering physics to work with Godot's scene architecture. My first approach used CharacterBody3D with move_and_slide() which fought constantly against the custom velocity, gravity, floor normals and physics layers all interfered with what should have been simple vector math. Switching to a plain Node3D that updates global_position directly each frame, exactly like the base repo's boid system, solved it immediately. 
 
-I also learned a lot about how FSMs interact with scene trees. The State base class uses get_parent() to find its state machine, which means the structure of the scene tree directly affects whether the code works — a small thing but it took a while to diagnose when states were reparented during restructuring.
+I also learned a lot about how FSMs interact with scene trees and how they behaved. The State base class uses get_parent() to find its state machine, which means the structure of the scene tree directly affects whether the code works. a small thing but it took a while to diagnose when states were reparented during restructuring.
 
 The harmonic system was the most satisfying thing to write. It started as a chord compatibility table (any harmonically valid note can follow any other) and evolved into a strict scale sequence, which turned out to be both simpler to implement and more musically interesting — the creature always plays a recognisable rising scale, just in a different rhythm and path depending on where the bells are.
 
@@ -88,5 +90,4 @@ The harmonic system was the most satisfying thing to write. It started as a chor
 
 - Base repo forked from skooter500/miniature-rotary-phone — SpineAnimator, StateMachine, State, NoiseWander, steering behaviours  
 - Bell sound: Singing Bowl Single Strike by S-Light on freesound.org — CC0 licence  
-- Harold Halibut (2024, Slow Bros.) — visual and conceptual inspiration  
 - Godot 4 documentation — CharacterBody3D motion modes, Basis.looking_at, GPUParticles3D
