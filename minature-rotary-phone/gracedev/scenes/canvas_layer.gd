@@ -34,7 +34,7 @@ func _process(_delta):
 			mood_label.text = "Mood:  Happy ✦"
 			mood_label.modulate = Color(0.1, 0.9, 0.8)
 		"curious":
-			mood_label.text = "Mood:  Curious ?"
+			mood_label.text = "Mood:  agitated ?"
 			mood_label.modulate = Color(0.9, 0.85, 0.1)
 		"angry":
 			mood_label.text = "Mood:  Restless ✕"

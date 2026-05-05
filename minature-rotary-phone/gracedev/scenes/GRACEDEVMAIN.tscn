@@ -81,10 +81,10 @@ offset_bottom = 235.0
 theme_override_fonts/font = ExtResource("3_bh1x8")
 
 [node name="Obstacles" parent="." groups=["obstacles"] instance=ExtResource("6_ks0uo")]
-transform = Transform3D(2.15648, 0, 0, 0, 12.0166, 0, 0, 0, 5.32284, -4.39112, 0, -6.5698)
+transform = Transform3D(2.15648, 0, 0, 0, 12.0166, 0, 0, 0, 5.32284, -19.758, 0, -6.5698)
 
 [node name="Obstacles2" parent="." groups=["obstacles"] instance=ExtResource("6_ks0uo")]
-transform = Transform3D(2.15648, 0, 0, 0, 5.61579, 0, 0, 0, 2.08856, 10.1119, 0, -6.5698)
+transform = Transform3D(2.15648, 0, 0, 0, 5.61579, 0, 0, 0, 2.08856, 13.9194, 0, -6.5698)
 
 [node name="Obstacles3" parent="." groups=["obstacles"] instance=ExtResource("6_ks0uo")]
-transform = Transform3D(8.6185, 0, 0, 0, 1.61185, 0, 0, 0, 2.08856, -4.39112, 0, 6.7716)
+transform = Transform3D(8.6185, 0, 0, 0, 1.61185, 0, 0, 0, 2.08856, -4.39112, 0, 14.7861)

@@ -26,7 +26,7 @@ func _input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pass # Replace with function body.
+	pass
 
 @export var can_move:bool = true
 

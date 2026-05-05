@@ -9,9 +9,7 @@ var energy: float = 0.0
 var is_performing: bool = true
 var current_target: Bell = null
 
-# =========================
-# EMOTION SYSTEM
-# =========================
+
 var satisfaction: float = 1.0
 var anger_rate: float = 0.02
 
@@ -26,9 +24,7 @@ func _process(delta):
 	satisfaction -= delta * anger_rate
 	satisfaction = clamp(satisfaction, 0.0, 1.0)
 
-# =========================
-# BELL INTERACTION
-# =========================
+
 func on_bell_collected(bell: Bell):
 	last_note = bell.get_note()
 	energy = clamp(energy + 0.2, 0.0, 1.0)
@@ -40,9 +36,6 @@ func on_bell_feedback(is_correct: bool):
 	else:
 		satisfaction = clamp(satisfaction - 0.4, 0.0, 1.0)
 
-# =========================
-# DECISION HELPERS
-# =========================
 func get_next_bell() -> Bell:
 	if not bell_spawner or not harmonic_system:
 		return null
@@ -82,9 +75,6 @@ func reject_bell(bell: Bell):
 	await get_tree().create_timer(5.0).timeout
 	rejected_bells.erase(bell)
 
-# =========================
-# AVOIDANCE LOGIC
-# =========================
 func get_avoidance_from_invalid_bells() -> Vector3:
 	var force = Vector3.ZERO
 	if not bell_spawner or not harmonic_system:
@@ -103,9 +93,7 @@ func get_avoidance_from_invalid_bells() -> Vector3:
 				force += away * (1.0 / max(dist, 0.1))
 	return force * 2.0
 
-# =========================
-# EMOTION QUERY API
-# =========================
+
 func get_emotion_state() -> String:
 	if satisfaction < 0.3:
 		return "angry"
