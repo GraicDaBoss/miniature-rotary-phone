@@ -41,3 +41,15 @@ func arrive_force(target_pos: Vector3, slowing_radius: float) -> Vector3:
 func flee_force(target_pos: Vector3) -> Vector3:
 	var desired = (global_position - target_pos).normalized() * max_speed
 	return (desired - velocity).limit_length(max_force)
+	
+func get_obstacle_avoidance() -> Vector3:
+	var force = Vector3.ZERO
+	var obstacles = get_tree().get_nodes_in_group("obstacles")
+	for obs in obstacles:
+		if not is_instance_valid(obs):
+			continue
+		var dist = global_position.distance_to(obs.global_position)
+		if dist < 4.0:
+			var away = (global_position - obs.global_position).normalized()
+			force += away * (4.0 / max(dist, 0.1))
+	return force.limit_length(max_force)

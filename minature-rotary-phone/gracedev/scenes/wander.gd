@@ -13,6 +13,8 @@ func _think():
 
 	# Steer away from invalid bells
 	boid.steering_force += brain.get_avoidance_from_invalid_bells()
+	
+	boid.steering_force += boid.get_obstacle_avoidance()
 
 	timer += get_process_delta_time()
 	if timer > 3.0:

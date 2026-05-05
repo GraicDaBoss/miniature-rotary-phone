@@ -5,6 +5,7 @@ enum Note { C, D, E, F, G, A, B }
 
 @export var bell_sample: AudioStream
 @export var note: Note = Note.C
+@export var particles: GPUParticles3D
 
 const COOLDOWN_DURATION: float = 8.0
 
@@ -32,36 +33,33 @@ var colour_map = {
 @onready var glow = $GlowLight
 @onready var mesh = $Mesh
 
-# Floating motion
+
 var float_timer: float = 0.0
 var base_y: float = 0.0
-
-# Cooldown system (reuses "collected")
 var cooldown: float = 0.0
 var on_cooldown: bool = false
-var collected: bool = false  # NOW means "temporarily unavailable"
+var collected: bool = false
 
 func _ready():
 	base_y = position.y
-	
 	audio.stream = bell_sample
 	audio.pitch_scale = pitch_map[note]
-	
 	glow.light_color = colour_map[note]
-	
 	var mat = StandardMaterial3D.new()
 	mat.emission_enabled = true
 	mat.emission = colour_map[note]
 	mat.emission_energy_multiplier = 2.0
 	mat.albedo_color = colour_map[note]
 	mesh.material = mat
+	# Set particle colour to match note
+	if particles:
+		var particle_mat = particles.process_material as ParticleProcessMaterial
+		if particle_mat:
+			particle_mat.color = colour_map[note]
 
 func _process(delta):
-	# Floating animation
 	float_timer += delta
 	position.y = base_y + sin(float_timer * 1.2) * 0.15
-	
-	# Cooldown handling
 	if collected:
 		cooldown += delta
 		if cooldown >= COOLDOWN_DURATION:
@@ -70,27 +68,27 @@ func _process(delta):
 			cooldown = 0.0
 
 func ring():
-	# Prevent re-trigger during cooldown
-	if collected:
-		return
-	
+	print("ring() called")
 	audio.play()
-	
-	# Mark as unavailable
-	collected = true
-	on_cooldown = true
-	
-	# Glow flash effect
+	if particles:
+		particles.restart()
 	var tween = create_tween()
 	tween.tween_property(glow, "light_energy", 4.0, 0.1)
 	tween.tween_property(glow, "light_energy", 1.5, 0.8)
+
 func collect():
-	# Just mark as unavailable (same as ring, but without audio)
 	if collected:
 		return
-	
 	collected = true
-	on_cooldown = true
+	
+	await get_tree().create_timer(1.5).timeout
+	if not is_instance_valid(self):
+		return
+	var tween = create_tween()
+	tween.tween_property(mesh, "scale", Vector3.ZERO, 0.4)
+	tween.tween_property(glow, "light_energy", 0.0, 0.4)
+	tween.tween_callback(queue_free)
+
 func is_available() -> bool:
 	return not collected
 

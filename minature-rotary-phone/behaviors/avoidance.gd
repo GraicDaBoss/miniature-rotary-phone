@@ -1,8 +1,5 @@
 class_name Avoidance extends SteeringBehavior
 	
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 enum ForceDirection {Normal, Incident, Up, Braking}
 @export var direction = ForceDirection.Normal
