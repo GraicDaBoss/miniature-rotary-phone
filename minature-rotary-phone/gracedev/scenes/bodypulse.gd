@@ -18,7 +18,6 @@ var current_colour: Color = COLOUR_HAPPY
 func _process(delta):
 	pulse_timer += delta
 
-	# Smoothly lerp toward target emotion colour
 	var target_colour: Color
 	if brain.is_angry():
 		target_colour = COLOUR_ANGRY
