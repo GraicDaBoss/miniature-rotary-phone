@@ -80,7 +80,7 @@ func collect():
 	if collected:
 		return
 	collected = true
-	# Wait for ring flash and audio to play before disappearing
+	
 	await get_tree().create_timer(1.5).timeout
 	if not is_instance_valid(self):
 		return
